@@ -1,0 +1,15 @@
+version: '2'
+
+services:
+  hubot:
+    build: .
+    volumes:
+     - ./scripts:/home/hubot/scripts
+    environment:
+      TZ: "Asia/Tokyo"
+      REDIS_URL: "redis://redis:6379"
+      HUBOT_TYPETALK_CLIENT_ID: "<typetalk client id of your robot>"
+      HUBOT_TYPETALK_CLIENT_SECRET: "<typetalk client secret of your robot>"
+      HUBOT_TYPETALK_ROOMS: "<typetalk room id>"
+  redis:
+    image: redis:3.0.7
